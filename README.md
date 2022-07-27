@@ -1,5 +1,5 @@
 # About tool
-"darkarp.py is a basic ARP (Address Resolution Protocol) spoofing tool written with Python programming language, which also implements packet sniffing.
+"darkarp.py is a basic ARP (Address Resolution Protocol) spoofing tool written with Python programming language, which also implements HTTP packet sniffing.
 <hr />
 
 # Installation 

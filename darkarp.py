@@ -109,10 +109,10 @@ def process_packet(packet):
         method = packet[HTTPRequest].Method.decode()
         cookie = packet[HTTPRequest].Cookie.decode()
         print(
-            f"\n{c.GREEN}[+] client: {ip} server: {url} method: {method}{c.ENDC}")
+            f"{c.GREEN}[+] client: {ip} server: {url} method: {method}{c.ENDC}")
         if packet.haslayer(Raw) and method == "POST":
             print(
-                f"\n{c.RED}[/] POST:\nCookie:{packet.cookie}Parameters:\n{packet[Raw].load}{c.ENDC}")
+                f"{c.RED}[/] POST:\nCookie:{packet.cookie}Parameters:\n{packet[Raw].load}{c.ENDC}")
 
 
 def repair_target_network():

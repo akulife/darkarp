@@ -15,7 +15,6 @@ arg = parser.parse_args()
 target = arg.target
 gateway = arg.gateway
 interface = arg.interface
-sniff = arg.sniff
 
 class c:
     RED = '\033[0;34m'

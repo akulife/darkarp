@@ -60,3 +60,5 @@ defining the gateway use the -g flag. Also if you want to sniff the network traf
 </pre>
 For running the script you need to run as a root user. note that also if you don't want to perform network sniffing then ignore -i flag.
 </hr>
+# Version
+version 1.0.0

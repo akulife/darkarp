@@ -144,8 +144,8 @@ def cmd():
                     system('clear')
             elif cmd == "exit":
                 repair_target_network()
-            elif cmd == "stop_attack":
-                repair_target_network()
+            elif cmd == "net_scan":
+                scan_netwrok()
             else:
                 print(
                     f"command \"{cmd}\" not found, type \"help\" for list commands")

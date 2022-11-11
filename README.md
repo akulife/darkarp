@@ -18,7 +18,7 @@ cd darkarp
 install requirements
 
 ```bash
-pip install -m requirements.txt
+pip install -r requirements.txt
 ```
 print usage 
 
